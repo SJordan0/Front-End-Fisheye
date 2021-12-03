@@ -1,6 +1,6 @@
 @import url("photographer.css");
 
-body {
+body, h2, h3, p {
     font-family: "DM Sans", sans-serif;
     margin: 0;
 }
@@ -47,4 +47,20 @@ h1 {
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.photographer_section article h3 {
+    color: #901C1C;
+    font-size: 18px;
+}
+
+.photographer_section article p {
+    font-size: 18px;
+}
+
+.photographer_section article span {
+    color: gray;
+    font-size: 18px;
 }
