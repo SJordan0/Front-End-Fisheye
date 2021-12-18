@@ -5,21 +5,7 @@ myFetch()
 
 function getPhotographers(json) {
     const photographers = json.photographers
-    const media = json.media
     showPhotographers(photographers)
-    window.addEventListener('hashchange', () => hashChanged(photographers))
-    for(const photographer of photographers) {
-        let mediaList = []
-        Object.defineProperty(photographer, 'media', {
-            value: mediaList,
-            writable: true
-        })
-        for (const medium in media) {
-            if (photographer.id == medium.photographerId) {
-                mediaList.push(medium)
-            }
-        }
-    }
 }
 
 export { getPhotographers }
@@ -27,9 +13,7 @@ export { getPhotographers }
 function showPhotographers(photographers) {
     for (let i = 0; i < photographers.length; i++) {
       createAcard(photographers[i]) 
-      displayTags(photographers[i]) 
     }
-    hashChanged(photographers)
 }
 
 window.addEventListener('scroll', () => content())

@@ -1,8 +1,3 @@
-//___Récupération de l'id dans l'url___//
-let str = window.location.href
-let url = new URL(str)
-let login = url.searchParams.get('id')
-
 //___Récupération des données du photographe___//
 class Photographer {
     constructor(name, id, city, country, tags, tagline, price, portrait, media) {
