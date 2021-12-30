@@ -1,22 +1,124 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fisheye - photographe </title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/FontAwesome/css/all.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   </head>
+
   <body>
+
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" aria-label="Page d'accueil">
+        <img src="assets/images/logo.png" alt="Logo Fisheye" class="logo"/>  
+      </a>
     </header>
-    <main id="main">
+
+    <main id="main_photo">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photographer_infos">
+          <h1 class="photographer_name"></h1>
+          <p class="photographer_location" id="location"></p>
+          <p class="photographer_tagline" id="tagline"></p>
+        </div>
+        <button class="contact_button" type="button" tabindex="0">Contactez-moi</button>
+        <picture class="photographer_picture">
+          <img class="photographer_picture_img" src="" alt=""/>
+        </picture>
       </div>
+
+      <div class="filters">
+        <h2>
+          <label class="filters_title" id="filters-label">Trier par</label>
+        </h2>
+        <div class="select-filters" id="select-filters">
+          <button type="button" role="button" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-label="trier par filtres" class="select-filters_button" id="button-triOpen">
+            <span class="option1">&ensp;Popularité</span>
+            <span class="arrows fas fa-chevron-down"></span>
+          </button>
+          <div class="container" id="container">
+            <ul role="listbox" aria-expanded="true" class="tri" id="tri" aria-activedescendant="option1" tabindex="0">
+              <li class="tri_option" id="option1" role="option" aria-label="trier par popularité" tabindex="0">&ensp;Popularité</li>
+              <li class="tri_option" id="option2" role="option" aria-label="trier par date" tabindex="0">&ensp;Date</li>
+              <li class="tri_option" id="option3" role="option" aria-label="trier par titre" tabindex="0">&ensp;Titre</li>
+            </ul> 
+            <button type="button" role="button" aria-haspopup="true" aria-expanded="true" tabindex="0" aria-label="fermer le choix de filtres" class="select-filters_button" id="button-triClose"> 
+            <span class="arrows fas fa-chevron-up"></span> 
+            </button>
+          </div>     
+        </div>
+      </div>
+
+      <section class="media" id="media" role="region" aria-label="ensemble des réalisations du photographe" tabindex="-1">
+
+      </section>
+
+      <div class="infos">
+        <div class="infos_likes">
+          <p class="infos_nombre_likes"></p>
+          <span class="infos_likes_icone fas fa-heart"></span>
+        </div>
+        <p class="infos_price"></p>
+      </div>
+      
     </main>
-    <div id="contact_modal">
+
+    <div class="modal-background">
+      <div class="modal" role="dialog" aria-modal="true" tabindex="-1" aria-labelledby="form">
+        <span class="close closeModal" id="closeModal" aria-labelledby="close" tabindex="0"></span>
+        <p class="sr-only" id="close">fermer</p>
+        <h2 class="modal_titre">Contactez-moi<br>Nom du Photographe</h2>
+        <form name="contact" method="GET" action="#" class="modal_form" id="form" aria-label="formulaire de contact">
+          <div class="modal_form_formdata">
+            <label for="firstname" class="modal_form_formdata_label">Prénom</label>
+            <input type="text" class="modal_form_formdata_input" id="firstname" tabindex="0" aria-labelledby="message-firstname" aria-required="true" required />
+            <span class="error sr-only" id="message-firstname">Veuillez saisir votre prénom (minimum 2 caractères)</span>
+          </div>
+          <div class="modal_form_formdata">
+            <label for="lastname" class="modal_form_formdata_label">Nom</label>
+            <input type="text" class="modal_form_formdata_input" id="lastname" tabindex="0" aria-labelledby="message-lastname" aria-required="true" required />
+            <span class="error sr-only" id="message-lastname">Veuillez saisir votre nom (minimum 2 caractères)</span>
+          </div>
+          <div class="modal_form_formdata">
+            <label for="email" class="modal_form_formdata_label">Email</label>
+            <input type="email" class="modal_form_formdata_input" id="email" tabindex="0" aria-labelledby="message-email" aria-required="true" required />
+            <span class="error sr-only" id="message-email">Veillez saisir une adresse email correcte : exemple@gmail.com</span>
+          </div>
+          <div class="modal_form_formdata">
+            <label for="message" class="modal_form_formdata_labelArea">Votre message</label>
+            <textarea name="message" id="message" class="modal_form_formdata_textarea"
+            minlength="5" maxlength="200" tabindex="0" aria-labelledby="message-message" required></textarea>
+            <span class="error sr-only" id="message-message">Veuillez saisir votre message</span>
+          </div>
+          <div class="divButton">
+            <input id="button" class="buttonSend" type="submit" value="Envoyer" aria-label="soumettre"/>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="lightbox-background">
+      <div class="lightbox-content" aria-modal="true" role="dialog" id="lightbox-content" aria-label="lightbox, images en gros plan" tabindex="-1">
+        <div class="lightbox" id="lightbox">
+          <button class="lightbox_prev" id="left" type="button" aria-labelledby="prev" tabindex="0"></button>
+          <p class="sr-only" id="prev" aria-hidden="true">image précédente</p>
+          <div class="divLightbox">
+            <ul class="lightbox_container"></ul>
+            <button class="lightbox_close" id="closeLightbox" type="button" aria-labelledby="close-lightbox" tabindex="0"></button>
+            <p class="sr-only" id="close-lightbox" aria-hidden="true">fermer la lightbox</p>
+            </div>
+          <button class="lightbox_next" id="right" type="button" aria-labelledby="next" tabindex="0"></button>
+          <p class="sr-only" id="next" aria-hidden="true">image suivante</p>
+        </div>
+      </div>
+    </div>
+    
+    <!--<div class="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
@@ -25,12 +127,18 @@
 				<form>
 					<div>
 						<label>Prénom</label>
+            <input />
+            <label>Nom</label>
+            <input />
+            <label>Email</label>
+            <input />
+            <label>Votre message</label>
 						<input />
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
-		</div>
-    <script src="/scripts/utils/contactForm.js"></script>
+		</div>-->
+    <script type="module" src="scripts/pagephotographer.js"></script>
   </body>
 </html>

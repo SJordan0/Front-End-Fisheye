@@ -25,7 +25,6 @@ function createAcard(photographer) {
   Location.innerHTML = `${photographer.city}, ${photographer.country}`
   Tagline.innerHTML = `${photographer.tagline}`
   Price.innerHTML = `${photographer.price}€/jour`
-  Price.innerHTML = `${photographer.price}€/jour`
   article.setAttribute('id', `article${photographer.id}`)
 }
 
