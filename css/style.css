@@ -448,3 +448,128 @@ menu, ol, ul {
     padding: .2rem;
     border: .2rem;
 }
+
+.media {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 450px 450px 450px;
+    column-gap: 1rem;
+    grid-auto-flow: row;
+    justify-content: space-between;
+    margin: 0 100px;
+}
+
+.media img {
+    transform: scale(1);
+    transition: transform 0.4s ease-in-out, opacity 0.1s 100ms;
+}
+
+.media img:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+figure{
+    margin: 0;
+}
+
+.article{
+    position: relative;
+    padding-bottom: 0.9rem;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.article_link {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    max-width: 450px;
+    max-height: 400px;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.article__link img {
+    height: auto;
+    object-fit: cover;
+}
+
+.article__link:focus {
+    opacity: 0.6;    
+    outline: solid #901c1c;
+    border-radius: 0;
+}
+
+.article_informations {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0 0.4rem;
+    height: 1.5rem;
+    color: #901c1c;
+    font-weight: 500;
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+.article_informations p:first-child {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 1.5rem;
+}
+
+.article_informations a{
+    color: #901c1c;
+}
+
+.article_informations_likes{
+    display: flex;
+}
+
+.article_informations_likes p:first-child{
+    padding: 0 0.7rem;
+}
+
+.article_informations_likes p:nth-child(2) {
+    padding: 0 0.3rem 0 0;
+  }
+
+.article_informations_likes .fa-heart {
+    cursor: pointer;
+    color: #901c1c;
+    padding-right: 0.1rem;
+    padding-left: 0.2rem;
+    font-size: 1.1rem;
+}
+
+.article_informations_likes .fa-heart:hover{
+    color: #d3573c;
+}
+
+.article_informations_likes .fa-heart:focus{
+    color: #d3573c;
+}
+
+.logoPlay {
+    position: absolute;
+    width: 5rem;
+    top: 32%;
+    z-index: 3;
+}
+
+.heart {
+    transform: rotate(0turn);
+}
+.heart:focus {
+    transform: rotate(1turn);
+    transition: transform 0.5s ease-in-out;
+    outline: none;
+}

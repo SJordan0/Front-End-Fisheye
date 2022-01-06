@@ -1,4 +1,5 @@
 import { openTri, closeTri, popularitySort, dateSort, titleSort } from './tri.js'
+import { testCreation } from './media.js'
 
 let photographer
 let title
@@ -49,6 +50,7 @@ class Photographer {
         )
         folderName(photographers[i])
         displayPhotographer(photographers[i])
+        testCreation(photographers[i].media)
         return photographer
       }
     }
@@ -87,7 +89,7 @@ function totalLikes(media) {
 //___Récupération du nom de chaque image___//
 function titleName(alt) {
   let str = alt
-  let i = str.indexOf(':')
+  let i = str.indexOf()
   title = i == -1 ? str : str.substring(0, i)
   return title
 }
@@ -127,7 +129,8 @@ titre.addEventListener('keydown', (e) => {
   }
 })
 
-export { getPhotographerData, titleName }
+export { getPhotographerData, titleName, nickName }
+
 
 
 /*function photographerFactory(data) {
