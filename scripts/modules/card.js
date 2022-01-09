@@ -17,7 +17,7 @@ function createAcard(photographer) {
     photographersSection.appendChild(article)
 
   // Contenu des cartes photographes
-  img.setAttribute('src', `../assets/photographers/${photographer.portrait}`)
+  img.setAttribute('src', `./assets/photographers/${photographer.portrait}`)
   img.setAttribute('alt', `portrait du photographe ${photographer.name}`)
   link.setAttribute('href', 'photographer.html?id=' + `${photographer.id}`)
   link.setAttribute('aria-label', `${photographer.name}`) 
