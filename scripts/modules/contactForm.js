@@ -9,16 +9,11 @@ const errorFirstName = document.getElementById('message-firstname') // creation 
 const errorLastName = document.getElementById('message-lastname') // creation de error LastName
 const errorEmail = document.getElementById('message-email') // creation de error Email
 const errorMessage = document.getElementById('message-message') // creation de error Message
-const formData = document.getElementsByClassName('modal_form_formData') // Toutes les div formData avec input
 const firstName = document.getElementById('firstname') // ajout input firstname dans le DOM
 const lastName = document.getElementById('lastname') // ajout input lastname dans le DOM
 const eMail = document.getElementById('email') // ajout input email dans le DOM
 const message = document.getElementById('message')
 const submit = document.getElementById('button')
-// formData[0].appendChild(errorFirstName)
-// formData[1].appendChild(errorLastName)
-// formData[2].appendChild(errorEmail)
-// formData[3].appendChild(errorMessage)
 
 //___Ouverture de la modale___//
 contact.addEventListener('click', () => displayModal())
@@ -28,7 +23,7 @@ function displayModal() {
   modalBg.setAttribute('aria-hidden', 'false')
   contact.style.display = 'none'
   main.setAttribute('aria-hidden', 'true')
-  firstName.focus()
+  modal.focus()
   modal.setAttribute('tabindex', '0')
 }
 
@@ -50,7 +45,6 @@ function closeModal() {
   contact.style.display = 'block'
   main.setAttribute('aria-hidden', 'false')
   modal.setAttribute('tabindex', '-1')
-  contact.focus()
   modal.removeEventListener('keydown', onKey)
 }
 
@@ -116,7 +110,8 @@ function testEmail() {
 message.addEventListener('blur', testMessage)
 let regexMessage = /[a-z]/
 function testMessage() {
-  if (((message.value) == '') ||
+  if (((message.value.length < 5) ||
+      (message.value) == '') ||
       (!regexMessage.test(message.value))) {
     message.classList.add('inputError') // attribution de la classe "inputError" au message(input)
     errorMessage.classList.remove('sr-only')
@@ -157,13 +152,3 @@ function validate(event) {
 
 export { displayModal }
 
-
-/*function displayModal() {
-    const modal = document.querySelector(".contact_button");
-	modal.style.display = "block";
-}
-
-function closeModal() {
-    const modal = document.querySelector(".contact_button");
-    modal.style.display = "none";
-}*/

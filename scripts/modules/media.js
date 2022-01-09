@@ -1,4 +1,6 @@
 import { nickName, titleName } from './photographer.js'
+import { addLikes } from './likes.js'
+import { lightbox } from './lightbox.js'
 
 let ulMedias = document.querySelector('.lightbox_container') // le conteneur d'image de la lightbox
 const sectionMedia = document.querySelector('#media')
@@ -28,8 +30,8 @@ class Image {
     image.setAttribute('src', `./assets/images/${nickName}/${medium.image}`)
     image.setAttribute('alt', `${medium.title}`)
     image.setAttribute('id', `id${medium.id}`)
-    image.setAttribute('width', '450')
-    image.setAttribute('height', '400')
+    image.setAttribute('width', '400')
+    image.setAttribute('height', '350')
 
     anchorMedia.addEventListener('click', (e) => lightbox(e))
   }
@@ -41,7 +43,7 @@ class Image {
     li.setAttribute('id', `item${medium.id}`)
     li.setAttribute('aria-hidden', 'true')
     ulMedias.appendChild(li)
-    let figure = document.createElement( 'li' );
+    let figure = document.createElement( 'figure' );
     figure.classList.add("figureLightbox")
     figure.setAttribute('aria-labelledby', `image${medium.id}`)
     figure.setAttribute('tabindex', '0')
@@ -68,7 +70,7 @@ class Video {
     icone.classList.add("logoPlay")
     anchorMedia.appendChild(icone)
     anchorMedia.setAttribute('href', 'javascript:void(0);')
-    icone.setAttribute('src', './images/play.png')
+    icone.setAttribute('src', './assets/images/play.png')
     icone.setAttribute('alt', '')
     icone.setAttribute('tabindex', '-1')
     let image = document.createElement('img')
@@ -77,8 +79,8 @@ class Video {
     image.setAttribute('src', `./assets/images/${nickName}/${captureImage}`)
     image.setAttribute('alt', `${medium.title}`)
     image.setAttribute('id', `id${medium.id}`)
-    image.setAttribute('width', '450')
-    image.setAttribute('height', '400')
+    image.setAttribute('width', '400')
+    image.setAttribute('height', '350')
 
     anchorMedia.addEventListener('click', (e) => lightbox(e))
   }
@@ -139,7 +141,7 @@ class Video {
     playButton.setAttribute('role', 'button')
     playButton.setAttribute('aria-label', 'lecture ou pause')
     playButton.setAttribute('data-state', 'play')
-    playButton.innerHTML = '<span class="fas fa-play"></span>'
+    playButton.innerHTML = '<img class="button_video" src="./assets/images/play.png"/>'
   }
 }
 
@@ -225,6 +227,4 @@ function createDOMElements(medium) {
   })
 }
 
-
-//_____________________________________________________________________________________________________________
 export { testCreation }

@@ -1,3 +1,5 @@
+import { testCreation } from './media.js'
+
 let listeTri = document.getElementById('container')
 let open = document.querySelector('#button-triOpen')
 let popularity = document.getElementById('option1')
@@ -23,6 +25,7 @@ function popularitySort(media) {
     return ((a.likes < b.likes) ? 1 : (a.likes == b.likes) ? 0 : -1)
   }
   media.sort(tri)
+  testCreation(media)
 }
 //___Tri par date___//
 
@@ -33,17 +36,19 @@ function dateSort(media) {
     return ((dateA < dateB) ? 1 : (dateA == dateB) ? 0 : -1)
   }
   media.sort(tri)
+  testCreation(media)
 }
 //___Tri par titre___//
 function titleSort(media) {
   function tri(a,b) {
-    let titleA = a.alt.split(' ').join('')
+    let titleA = a.title.split(' ').join('')
     a = titleA.toLowerCase()
-    let titleB = b.alt.split(' ').join('')
+    let titleB = b.title.split(' ').join('')
     b = titleB.toLowerCase()
     return (a < b) ? -1 : 1
   }
   media.sort(tri)
+  testCreation(media)
 }
 
 export { openTri, closeTri, popularitySort, dateSort, titleSort }
