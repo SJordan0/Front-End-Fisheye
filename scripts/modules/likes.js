@@ -1,3 +1,4 @@
+//___DOM___//
 const totalLikesNb = document.querySelector('.infos_nombre_likes')
 
 //___Ajout ou retrait de like au click___//

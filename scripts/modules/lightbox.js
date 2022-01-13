@@ -52,6 +52,7 @@ function switchState() {
     myVideo.pause()
     playPause.innerHTML = '<img src="./assets/images/play.png"/>'
   }
+  
 //___Affichage du bouton replay___//
   myVideo.addEventListener('ended', () => {
     playPause.innerHTML = '<img src="./assets/images/replay.png"/>'

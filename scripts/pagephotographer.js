@@ -20,6 +20,7 @@ function getPhotographersPage(json) {
         }
       }
     }
+    //___Affichage des données___//
     getPhotographerData(json.photographers)
   }
   

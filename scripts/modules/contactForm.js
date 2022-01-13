@@ -1,6 +1,5 @@
 //___DOM___//
 const main = document.getElementById('main_photo')
-
 const modalBg = document.querySelector('.modal-background')
 const modal = document.querySelector('.modal')
 const contact = document.querySelector('.contact_button')
@@ -28,7 +27,6 @@ function displayModal() {
 }
 
 //___Fermeture de la modale___//
-
 closeContact.addEventListener('click', () => closeModal())
 modal.addEventListener('keydown', (e) => onKey(e))
 
@@ -48,7 +46,7 @@ function closeModal() {
   modal.removeEventListener('keydown', onKey)
 }
 
-//___function testFirstName___//
+//___Vérification du prénom___//
 let regexName = /^[a-zA-ZéèêëîïÈÉÊËÎÏÀÁÂ][a-zA-ZéèêëîïÈÉÊËÎÏÀÁÂ]+([ \-'][a-zA-ZéèêëîïÈÉÊËÎÏÀÁÂ][a-zA-ZéèêëîïÈÉÊËÎÏÀÁÂ]+)?$/
 
 firstName.addEventListener('blur', testFirstName)
@@ -68,7 +66,7 @@ function testFirstName() {
     return true
   }
 }
-//___function testLastName___//
+//___Vérification du nom___//
 lastName.addEventListener('blur', testLastName)
 
 function testLastName() {
@@ -86,7 +84,7 @@ function testLastName() {
     return true
   }
 }
-//___function testEmail___//
+//___Vérification de l'email___//
 let regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 eMail.addEventListener('blur', testEmail)
@@ -106,7 +104,7 @@ function testEmail() {
     return true
   }
 }
-//___function testMessage___//
+//___Vérification du message___//
 message.addEventListener('blur', testMessage)
 let regexMessage = /[a-z]/
 function testMessage() {
@@ -124,8 +122,8 @@ function testMessage() {
     return true
   }
 }
-//___function submit___//
 
+//___Validation de la modale___//
 submit.addEventListener('click', (event) => {
   validate(event)
 })

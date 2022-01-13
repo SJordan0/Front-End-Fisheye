@@ -3,6 +3,7 @@ import { createAcard } from './modules/card.js'
 
 myFetch()
 
+//__Récupération et affichage des données des photographes___//
 function getPhotographers(json) {
     const photographers = json.photographers
     showPhotographers(photographers)
@@ -10,10 +11,9 @@ function getPhotographers(json) {
 
 export { getPhotographers }
 
+//___Affichage des données___//
 function showPhotographers(photographers) {
     for (let i = 0; i < photographers.length; i++) {
       createAcard(photographers[i]) 
     }
 }
-
-window.addEventListener('scroll', () => content())

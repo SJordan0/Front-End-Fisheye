@@ -87,6 +87,17 @@ menu, ol, ul {
     height: 50px;
 }
 
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #DB8876;
+    width: 20%;
+    height: 90px;
+    font-size: 32px;
+    border-radius: 10px;
+}
+
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -252,6 +263,7 @@ menu, ol, ul {
     padding: 0.9rem 0.5rem;
     border-radius: 0.3rem;
     box-sizing: border-box;
+    width: 170px;
 }
 
 .tri {
@@ -260,7 +272,7 @@ menu, ol, ul {
     align-items: flex-start;
     background-color: #901c1c;
     border-radius: 0.3rem;
-    padding: 0 0.5rem;
+    padding: 0 0.57rem;
     cursor: pointer;
     position: absolute;
     z-index: 3;
@@ -299,9 +311,9 @@ menu, ol, ul {
 
 #button-triClose {
     position: absolute;
-    left: 6.7rem;
-    top: 1.2rem;
-    z-index: 3;
+    top: 1rem;
+    display: flex;
+    justify-content: flex-end;
   }
   
 .infos {

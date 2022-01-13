@@ -1,5 +1,6 @@
 import { testCreation } from './media.js'
 
+//___DOM___//
 let listeTri = document.getElementById('container')
 let open = document.querySelector('#button-triOpen')
 let popularity = document.getElementById('option1')
@@ -18,17 +19,23 @@ function closeTri() {
   open.focus()
 }
 
-//___Tri par popularité___//
+//___Renommage selon le tri___//
+function renameTri(alt) {
+  let name = document.querySelector('.option1')
+  name.innerHTML = alt
+}
 
+//___Tri par popularité___//
 function popularitySort(media) {
   function tri(a,b) {
     return ((a.likes < b.likes) ? 1 : (a.likes == b.likes) ? 0 : -1)
   }
   media.sort(tri)
   testCreation(media)
+  renameTri('&ensp;Popularité')
 }
-//___Tri par date___//
 
+//___Tri par date___//
 function dateSort(media) {
   function tri(a,b) {
     let dateA = new Date(a.date)
@@ -37,7 +44,9 @@ function dateSort(media) {
   }
   media.sort(tri)
   testCreation(media)
+  renameTri('&ensp;Date')
 }
+
 //___Tri par titre___//
 function titleSort(media) {
   function tri(a,b) {
@@ -49,6 +58,7 @@ function titleSort(media) {
   }
   media.sort(tri)
   testCreation(media)
+  renameTri('&ensp;Titre')
 }
 
 export { openTri, closeTri, popularitySort, dateSort, titleSort }

@@ -1,5 +1,6 @@
 import { getPhotographers } from '../index.js'
 
+//___Récupération des données___//
 function myFetch(){
     let source = './data/photographers.json'
     fetch(source).then(async (res) => {

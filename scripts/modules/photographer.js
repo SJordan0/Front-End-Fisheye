@@ -1,11 +1,10 @@
 import { openTri, closeTri, popularitySort, dateSort, titleSort } from './tri.js'
 import { testCreation } from './media.js'
 
+//___DOM___//
 let photographer
 let title
 let nickName
-
-//___DOM___//
 const h1 = document.querySelector('h1')
 const Location = document.querySelector('#location')
 const Tagline = document.querySelector('#tagline')
@@ -15,7 +14,6 @@ const contactTitle = document.querySelector('.modal_titre')
 const totalLikesNb = document.querySelector('.infos_nombre_likes')
 
 //___Récupération de l'id dans l'url___//
-
 let str = window.location.href
 let url = new URL(str)
 let login = url.searchParams.get('id')
@@ -56,7 +54,7 @@ class Photographer {
     }
   }
 
-  //___Récupération du nom du dossier image___//
+//___Récupération du nom du dossier image___//
 function folderName(photographer) {
   let name = photographer.name.toLowerCase().replace('-', '_')
   let i = name.indexOf(' ')
@@ -95,15 +93,16 @@ function titleName(alt) {
 }
 
 //___liste de tri___//
-
 let open = document.querySelector('#button-triOpen')
 let popularity = document.getElementById('option1')
 let date = document.getElementById('option2')
 let titre = document.getElementById('option3')
 let close = document.querySelector('#button-triClose')
+let close2 = document.querySelector('.filters')
 
 open.addEventListener('click', () => openTri())
 close.addEventListener('click', () => closeTri())
+close2.addEventListener('mouseup', () => closeTri())
 
 //___popularité___//
 popularity.addEventListener('click', () => popularitySort(photographer.media))
@@ -130,38 +129,3 @@ titre.addEventListener('keydown', (e) => {
 })
 
 export { getPhotographerData, titleName, nickName }
-
-
-
-/*function photographerFactory(data) {
-    const { name, city, country, tagline, price, portrait } = data;
-
-    const picture = `../assets/photographers/${portrait}`;
-    //const photographer = `photographer.html`;
-
-    function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const button = document.createElement( 'button' );
-        button.setAttribute = ("a", photographer);
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        const h3 = document.createElement ('h3');
-        h3.textContent = city + country;
-        const p = document.createElement ('p');
-        p.classList.add("tagline");
-        p.textContent = tagline;
-        const span = document.createElement ('span');
-        span.textContent = price;
-        article.appendChild(img);
-        article.appendChild(h2);
-        article.appendChild(h3);
-        article.appendChild(p);
-        article.appendChild(span);
-        return (article);
-    }
-    return { name, city, country, tagline, price, portrait, getUserCardDOM }
-}
-
-export { photographerFactory }*/

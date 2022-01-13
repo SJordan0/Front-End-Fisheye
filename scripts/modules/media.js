@@ -2,11 +2,12 @@ import { nickName, titleName } from './photographer.js'
 import { addLikes } from './likes.js'
 import { lightbox } from './lightbox.js'
 
+//___DOM___//
 let ulMedias = document.querySelector('.lightbox_container') // le conteneur d'image de la lightbox
 const sectionMedia = document.querySelector('#media')
-
 let titre
 
+//___tri image et vidéo___//
 class Media {
   constructor() {
     this.createMedia = (type) => {
@@ -20,6 +21,7 @@ class Media {
     }
   }
 }
+
 //___images pour les cartes media___//
 class Image {
   createAnImageCard(medium) {
@@ -35,7 +37,8 @@ class Image {
 
     anchorMedia.addEventListener('click', (e) => lightbox(e))
   }
-  //___images HD pour la lightbox___//
+
+//___images HD pour la lightbox___//
   createAnImage(medium) {
     let li = document.createElement( 'li' );
     li.style.display = 'none'
@@ -62,6 +65,7 @@ class Image {
     figcaption.innerText = `${titre}`
   }
 }
+
 //___image de la video pour les cartes media___//
 class Video {
   createAVideoCard(medium) {
@@ -84,7 +88,8 @@ class Video {
 
     anchorMedia.addEventListener('click', (e) => lightbox(e))
   }
-  //___video pour la lightbox___//
+
+//___video pour la lightbox___//
   createAVideo(medium) {
     let li = document.createElement( 'li' );
     li.style.display = 'none'
@@ -133,7 +138,6 @@ class Video {
     infos.innerText = `${titre}`
     infos.setAttribute('aria-hidden', 'true')
 
-
     let playButton = document.createElement('button')
     divCaption.appendChild(playButton)
     playButton.setAttribute('id', 'playpause')
@@ -145,6 +149,7 @@ class Video {
   }
 }
 
+//___Création des médias___//
 const creation = new Media()
 
 function testCreation(media) {

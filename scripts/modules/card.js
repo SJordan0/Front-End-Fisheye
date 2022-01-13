@@ -1,5 +1,7 @@
+//___DOM___//
 let photographersSection = document.querySelector(".photographer_section");
 
+//___Création d'un profil___//
 function createAcard(photographer) {
     let article = document.createElement( 'article' );
     let link = document.createElement('a');
@@ -16,7 +18,7 @@ function createAcard(photographer) {
     article.appendChild(Price)
     photographersSection.appendChild(article)
 
-  // Contenu des cartes photographes
+//___Contenu du profil___//
   img.setAttribute('src', `./assets/photographers/${photographer.portrait}`)
   img.setAttribute('alt', `portrait du photographe ${photographer.name}`)
   link.setAttribute('href', 'photographer.html?id=' + `${photographer.id}`)
