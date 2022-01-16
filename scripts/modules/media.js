@@ -61,6 +61,7 @@ class Image {
     let figcaption = document.createElement( 'figcaption' );
     figcaption.classList.add("titleLightbox")
     figcaption.setAttribute('aria-hidden', 'true')
+    figcaption.setAttribute('tabindex', `0`)
     figure.appendChild(figcaption)
     figcaption.innerText = `${titre}`
   }
@@ -199,6 +200,7 @@ function createDOMElements(medium) {
   figure.appendChild(figcaption)
   //___DOM élément titre de l'image___//
   let title = document.createElement( 'p' );
+  title.setAttribute('tabindex', `0`)
   figcaption.appendChild(title)
   title.innerHTML = `${titre}`
   title.setAttribute('id', `title${medium.id}`)

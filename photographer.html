@@ -21,19 +21,21 @@
     <main id="main_photo">
       <div class="photograph-header">
         <div class="photographer_infos">
-          <h1 class="photographer_name">Nom</h1>
-          <p class="photographer_location" id="location"></p>
-          <p class="photographer_tagline" id="tagline"></p>
+          <h1 class="photographer_name" tabindex="0">Nom</h1>
+          <div class="photographer_text" tabindex="0">
+            <p class="photographer_location" id="location"></p>
+            <p class="photographer_tagline" id="tagline"></p>
+          </div>
         </div>
         <button class="contact_button" type="button" tabindex="0">Contactez-moi</button>
-        <picture class="photographer_picture">
+        <picture class="photographer_picture" tabindex="0">
           <img class="photographer_picture_img" src="./assets/photographers/account.png" alt=""/>
         </picture>
       </div>
 
       <div class="filters">
         <h2>
-          <label class="filters_title" id="filters-label">Trier par</label>
+          <label class="filters_title" id="filters-label" tabindex="0">Trier par</label>
         </h2>
         <div class="select-filters" id="select-filters">
           <button type="button" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-label="trier par filtres" class="select-filters_button" id="button-triOpen">

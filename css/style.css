@@ -133,16 +133,23 @@ menu, ol, ul {
     object-fit: cover;
 }
 
-.photographer_section h3 {
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info h3 {
     color: #901C1C;
     font-size: 18px;
 }
 
-.photographer_section p {
+.info p {
     font-size: 18px;
 }
 
-.photographer_section span {
+.info span {
     color: gray;
     font-size: 18px;
 }
